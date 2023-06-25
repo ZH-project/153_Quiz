@@ -11,7 +11,9 @@ function ProfileScreen ({ name, age, weight, height, setName, setAge, setWeight,
 	const [temp3, setTemp3] = useState('');
   return (
 		<SafeAreaView style={styles.screen}>
+			<SafeAreaView style={styles.header}>
 			<Text>currentValue={"{"}{'"name"'}:{name},{'"age"'}:{age},{'"weight"'}:{weight},{'"height"'}:{height}{'}'}</Text>
+			</SafeAreaView>
 			<SafeAreaView style={styles.input}>
 			<Text>name </Text>
 			<TextInput 
@@ -89,7 +91,7 @@ export default function App() {
 	const [weight, setWeight] = useState('');
 	const [height, setHeight] = useState('');
   return (
-			<UsernameContext.Provider value={{name:name, age:age, weight:weight, height:height}}>
+	<UsernameContext.Provider value={{name:name, age:age, weight:weight, height:height}}>
         <NavigationContainer>
         <Tab.Navigator
           screenOptions={({ route }) => ({
@@ -126,7 +128,7 @@ export default function App() {
         <Tab.Screen name="BMI" component={BMIScreen} />
         </Tab.Navigator>
       </NavigationContainer>
-			</UsernameContext.Provider>
+	</UsernameContext.Provider>
     );
   }
 
@@ -135,17 +137,19 @@ export default function App() {
 		padding: 4,
 		flex:1,
     },
+	header:{
+		flex: 1,
+		fontSize: 22,
+	},
     input: {
       	margin: 5,
-		fontSize: 20,
+		fontSize: 22,
 		flexDirection: 'row',
-		flex:1,
+		flex: 1,
 		justifyContent:'space-evenly',
-
     },
 	button:{
-		alignSelf:'center',
+		alignSelf: 'center',
 		width:'100%',
-
 	},
   });
