@@ -11,50 +11,48 @@ function ProfileScreen ({ name, age, weight, height, setName, setAge, setWeight,
 	const [temp3, setTemp3] = useState('');
   return (
 		<SafeAreaView style={styles.screen}>
-
 			<Text>currentValue={"{"}{'"name"'}:{name},{'"age"'}:{age},{'"weight"'}:{weight},{'"height"'}:{height}{'}'}</Text>
+			<SafeAreaView style={styles.input}>
+			<Text>name </Text>
+			<TextInput 
+						style={{backgroundColor:'#90EE8F', height:22, width:180}}
+						onChangeText={text => {setName(text);}}>
+					</TextInput>
+				</SafeAreaView>
 
-      <SafeAreaView style={styles.input}>
-        <Text>name </Text>
-        <TextInput 
-					style={{backgroundColor:'#90EE8F', height:22, width:180}}
-					onChangeText={text => {setName(text);}}>
-				</TextInput>
-			</SafeAreaView>
+				<SafeAreaView style={styles.input}>
+					<Text>age </Text>
+					<TextInput 
+						placeholder=' '
+						style={{backgroundColor:'#AED8E6', height:22, width:180}}
+						onChangeText={text => {setTemp1(text)}} 
+						>
+					</TextInput>
+				</SafeAreaView>
+
+				<SafeAreaView style={styles.input}>
+			<Text>weight </Text>
+			<TextInput 
+						placeholder=''
+						style={{backgroundColor:'#FEC0CB', height:22, width:180}}
+						onChangeText={text => {setTemp2(text)}} 
+						>
+					</TextInput>
+				</SafeAreaView>
 
 			<SafeAreaView style={styles.input}>
-        <Text>age </Text>
-        <TextInput 
-					placeholder=' '
-					style={{backgroundColor:'#AED8E6', height:22, width:180}}
-					onChangeText={text => {setTemp1(text)}} 
-					>
-				</TextInput>
-			</SafeAreaView>
-
-			<SafeAreaView style={styles.input}>
-        <Text>weight </Text>
-        <TextInput 
-					placeholder=''
-					style={{backgroundColor:'#FEC0CB', height:22, width:180}}
-					onChangeText={text => {setTemp2(text)}} 
-					>
-				</TextInput>
-			</SafeAreaView>
-
-			<SafeAreaView style={styles.input}>
-        <Text>height </Text>
-        <TextInput 
+				<Text>height </Text>
+				<TextInput 
 					placeholder=' '
 					style={{backgroundColor:'#00FFFF', height:22, width:180}}
 					onChangeText={text => {setTemp3(text)}} 
 					>
 				</TextInput>
 			</SafeAreaView>		
-			<SafeAreaView>
-			<Button title='SAVE PROFILE' onPress={()=>{setName(name),setAge(temp1),setWeight(temp2),setHeight(temp3);}}/>	
+			<SafeAreaView style={styles.button}>
+				<Button title='SAVE PROFILE' onPress={()=>{setName(name),setAge(temp1),setWeight(temp2),setHeight(temp3);}}/>	
 			</SafeAreaView>
-			</SafeAreaView>
+		</SafeAreaView>
 			
   );
 }
@@ -134,15 +132,20 @@ export default function App() {
 
   const styles = StyleSheet.create({
     screen:{
-			padding: 4,
-			flex:1
+		padding: 4,
+		flex:1,
     },
     input: {
-      margin: 5,
-			fontSize: 20,
-			flexDirection: 'row',
-			justifyContent: 'space-evenly',
-			alignItems:'center',
-			flex: 1
+      	margin: 5,
+		fontSize: 20,
+		flexDirection: 'row',
+		flex:1,
+		justifyContent:'space-evenly',
+
     },
+	button:{
+		alignSelf:'center',
+		width:'100%',
+
+	},
   });
